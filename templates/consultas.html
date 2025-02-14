@@ -1,0 +1,30 @@
+{% extends 'pageEstrutura.html' %}
+{% block conteudo %}
+
+<div class="container">
+  <h1>Meus Agendamentos</h1>
+
+  {% if dadosBD %}
+    {% for tupla in dadosBD %}
+    <!-- Card de Agendamento 1 -->
+    <div class="appointment-card">
+      <div class="appointment-details">
+        <span><strong>Data e Hora:</strong> {{ tupla['dataHora'] }}</span>
+        <span><strong>Profissional:</strong> {{ tupla['profissional'] }}</span>
+        <span><strong>Especialidade:</strong> {{ tupla['especialidade'] }}</span>
+      </div>
+      <div class="appointment-actions">
+        {% set id = tupla['idConsulta'] %}
+        <button class="btn-alterar" onclick="window.location.href='/updateConsulta/{{ id }}'">Alterar Agendamento</button>
+        <button class="btn-excluir" onclick="window.location.href='/deleteConsulta/{{ id }}'">Excluir Agendamento</button>
+      </div>
+    </div>
+    {% endfor %}
+  {% else %}
+  Não há agendamentos
+  {% endif %}
+  
+  <!-- Outros agendamentos podem ser adicionados seguindo o mesmo padrão -->
+</div>
+
+{% endblock %}

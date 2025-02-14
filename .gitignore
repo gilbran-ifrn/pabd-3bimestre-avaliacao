@@ -1,0 +1,11 @@
+# MacOS
+.DS_Store
+
+# Arquivos Python: 
+venv/
+.venv/
+
+__pycache__/
+
+# Outros
+clinica.conf

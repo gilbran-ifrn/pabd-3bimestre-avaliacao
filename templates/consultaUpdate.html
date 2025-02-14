@@ -1,0 +1,28 @@
+{% extends 'pageEstrutura.html' %}
+{% block conteudo %}
+
+  <div class="form-container">
+    <h1>Alterar Dados do Agendamento</h1>
+    <form action="/updateConsulta/{{ dadosBDConsulta['consultaID'] }}" method="post">
+      <label for="medico">Selecione o Médico</label>
+      <select id="medico" name="medico" required>
+        <option value="">Escolha um médico</option>
+        {% for tupla in dadosBDMedicos %}
+        {% if tupla['id'] == dadosBDConsulta['medicoID'] %}
+          {% set selecionado = 'selected' %}
+        {% endif %}
+        <option value="{{ tupla['id'] }}" {{ selecionado }}>{{ tupla['especialidade'] }} - {{ tupla['nome'] }}</option>
+        {% endfor %}
+      </select>
+      
+      <label for="data">Selecione a Data</label>
+      <input type="date" id="data" name="data" value="{{ dadosBDConsulta['data'] }}" required>
+      
+      <label for="horario">Selecione o Horário</label>
+      <input type="time" id="horario" name="horario" value="{{ dadosBDConsulta['hora'] }}" required>
+      
+      <button type="submit">Alterar Consulta</button>
+    </form>
+  </div>
+
+  {% endblock %}

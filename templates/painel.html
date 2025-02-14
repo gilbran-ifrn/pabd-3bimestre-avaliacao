@@ -1,0 +1,35 @@
+{% extends 'pageEstrutura.html' %}
+{% block conteudo %}
+
+<div class="panel-container">
+  <h1>Clínica INFO3M - Painel</h1>
+  <div class="cards-container">
+    
+    <a href="/consultas" class="card">
+      <h3>Minhas Consultas</h3>
+      <p>Confira todas as consultas agendadas e acompanhe os detalhes dos seus atendimentos.</p>
+    </a>
+
+    <a href="/addConsulta" class="card">
+      <h3>Marcar uma Consulta</h3>
+      <p>Marque uma nova consulta com os nossos profissionais de saúde de forma simples e rápida.</p>
+    </a>
+
+    <a href="/updateUsuario" class="card">
+      <h3>Alterar Dados Pessoais</h3>
+      <p>Atualize suas informações pessoais e garanta que seus dados estejam sempre corretos.</p>
+    </a>
+
+    <a href="/medicos" class="card">
+      <h3>Ver Médicos</h3>
+      <p>Visualize a lista completa de profissionais e suas especialidades.</p>
+    </a>
+
+    <a href="/logout" class="card">
+      <h3>Logout</h3>
+    </a>
+
+  </div>
+</div>
+
+{% endblock %}

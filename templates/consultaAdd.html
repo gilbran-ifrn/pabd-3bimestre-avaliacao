@@ -1,0 +1,25 @@
+{% extends 'pageEstrutura.html' %}
+{% block conteudo %}
+
+  <div class="form-container">
+    <h1>Agendar Consulta</h1>
+    <form action="/addConsulta" method="post">
+      <label for="medico">Selecione o Médico</label>
+      <select id="medico" name="medico" required>
+        <option value="">Escolha um médico</option>
+        {% for tupla in dadosBD %}
+        <option value="{{ tupla['id'] }}">{{ tupla['especialidade'] }} - {{ tupla['nome'] }}</option>
+        {% endfor %}
+      </select>
+      
+      <label for="data">Selecione a Data</label>
+      <input type="date" id="data" name="data" required>
+      
+      <label for="horario">Selecione o Horário</label>
+      <input type="time" id="horario" name="horario" required>
+      
+      <button type="submit">Marcar Consulta</button>
+    </form>
+  </div>
+  
+  {% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'pageEstrutura.html' %}
+{% block conteudo %}
+
+  <div class="container">
+    <h1>Corpo Médico</h1>
+    <div class="cards-container">
+    {% if dadosBD %}
+      {% for tupla in dadosBD %}
+      <div class="card">
+        <span class="especialidade">{{ tupla['especialidade'] }}</span>
+        <h2>{{ tupla['nome'] }}</h2>
+        <p>{{ tupla['descricao'] }}</p>
+      </div>
+      {% endfor %}
+    {% else %}
+    Não há médicos cadastrados
+    {% endif %}
+      
+    </div>
+  </div>
+
+  {% endblock %}
