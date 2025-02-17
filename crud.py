@@ -1,4 +1,4 @@
-import mysql.connector
+from mysql.connector import (connection)
 
 import json
 
@@ -17,7 +17,7 @@ def conexaoBD():
         with open('database/clinica.conf', 'r') as dadosbd: 
             databd = json.load(dadosbd)
 
-        cnx = mysql.connector.connect(user=databd['user'],
+        cnx = connection.MySQLConnection(user=databd['user'],
                                     password=databd['pass'],
                                     host=databd['host'],
                                     database=databd['database'])
